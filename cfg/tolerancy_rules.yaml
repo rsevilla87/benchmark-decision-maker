@@ -1,0 +1,2 @@
+- ["test_type/stream/protocol/*/message_size/*/num_threads/1/avg(norm_byte)", -78]
+- ["test_type/rr/protocol/*/message_size/*/num_threads/*/90.0percentiles(norm_ltcy)", 100]
