@@ -1,2 +1,5 @@
-- ["test_type/stream/protocol/*/message_size/*/num_threads/1/avg(norm_byte)", -78]
-- ["test_type/rr/protocol/*/message_size/*/num_threads/*/90.0percentiles(norm_ltcy)", 100]
+---
+- json_path: "test_type/stream/protocol/*/message_size/*/num_threads/1/avg(norm_byte)"
+  tolerancy: -20
+- json_path: "test_type/rr/protocol/*/message_size/*/num_threads/*/90.0percentiles(norm_ltcy)"
+  tolerancy: 30

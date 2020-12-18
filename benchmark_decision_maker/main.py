@@ -69,17 +69,21 @@ def main():
     parser = ArgumentParser()
     parser.add_argument("-b", "--baseline-uuid", required=True)
     parser.add_argument("-r", "--results-file", required=True)
-    parser.add_argument("-j", "--json-paths-cfg", required=True)
+    parser.add_argument("-t", "--tolerancy-rules", required=True)
+    parser.add_argument("-o", "--output", choices=["yaml", "json"], default="yaml")
     args = parser.parse_args()
     with open(args.results_file) as f:
         results_data = json.load(f)
-    with open(args.json_paths_cfg) as f:
+    with open(args.tolerancy_rules) as f:
         json_paths = yaml.load(f, Loader=yaml.FullLoader)
     c = Compare(args.baseline_uuid, results_data)
     for json_path in json_paths:
-        r = c.compare(json_path[0], json_path[1])
+        r = c.compare(json_path["json_path"], json_path["tolerancy"])
         if r:
-            print(yaml.dump(c.compare_dict, indent=1))
+            if args.output == "yaml":
+                print(yaml.dump(c.compare_dict, indent=1))
+            elif args.output == "json":
+                print(json.dumps(c.compare_dict, indent=4))
             rc = r
     exit(rc)
 
