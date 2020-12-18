@@ -129,3 +129,5 @@ test_type:
 $ echo $?
 1
 ```
+
+Where we can observe the metrics not meeting the tolerations from the baseline metric and RS is 0.
