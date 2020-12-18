@@ -32,7 +32,7 @@ $ decision_maker -r cfg/input_results.json  -b a7dfb872-06bc-5e10-b878-eca5eb0b3
 
 ## Configuration
 
-This tool uses a tolerancy rules file to, to return different results depending on the rules described. It's a YAML file with the following that looks like:
+This tool uses a tolerancy rules file, in order to return different results depending on the rules described. It's a YAML file with the following that looks like:
 
 ```yaml
 - json_path: "test_type/stream/protocol/*/message_size/*/num_threads/1/avg(norm_byte)"
@@ -130,4 +130,4 @@ $ echo $?
 1
 ```
 
-Where we can observe the metrics not meeting the tolerations from the baseline metric and RS is 0.
+Where we can observe the metrics not meeting the tolerations compared with the baseline metric and a return code of 0.
